@@ -149,6 +149,30 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
 			</plugin>
+      <plugin>
+        <groupId>org.moditect</groupId>
+        <artifactId>moditect-maven-plugin</artifactId>
+        <version>1.0.0.Final</version>
+        <executions>
+          <execution>
+            <id>add-module-infos</id>
+            <goals>
+              <goal>add-module-info</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <jvmVersion>9</jvmVersion>
+              <module>
+                <moduleInfo>
+                  <name>net.jcip.annotations</name>
+                  <exports>net.jcip.annotations;</exports>
+                </moduleInfo>
+              </module>
+              <overwriteExistingFiles>true</overwriteExistingFiles>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
   </build>
 
